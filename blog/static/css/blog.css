@@ -1,0 +1,61 @@
+body {
+  background:linear-gradient(to right,#0f8,#08f);
+}
+
+label{
+  display: inline-block;
+  width: 140px;
+}
+
+.techfont{
+  font-size: 1.4em;
+}
+
+.bigbrand{
+  font-size: 1.5em;
+}
+
+.date{
+  font-weight: bolder;
+  font-style: italic;
+}
+
+.posttitle{
+  font-family: 'Sansita Swashed', cursive;
+  color:#cc0000;
+  font-size: 3em;
+}
+
+.maincontent{
+  font-family: 'Courgette', cursive;
+  font-size: 1.2em;
+}
+
+.postcontent{
+  font-family: 'Montserrat';
+  font-size:1.4em;
+}
+
+.moreinfo{
+  color:#660066;
+  font-weight: 600;
+}
+
+#maintitle{
+  color:#ff0066;
+  font-family: 'Algerian';
+}
+
+#comment{
+  color:red;
+  font-style: italic;
+}
+
+#commentcount{
+  color:#3333cc;
+  font-weight: bold;
+}
+
+#about{
+  font-size: 1.2em;
+}

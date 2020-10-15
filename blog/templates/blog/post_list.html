@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+  {% for post in post_list %}
+    <h1><a id="maintitle"  href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h1>
+    {% if post.published_date %}
+    <p class="date">Published On: {{post.published_date}} by {{post.author|title}}</p>
+    <p class="maincontent">{{post.text|truncatewords:30}}
+    <a class="moreinfo" href="{% url 'post_detail' pk=post.pk %}">Read More &raquo;</a><br></p>
+    <a id="commentcount" href="{% url 'post_detail' pk=post.pk %}">Comments: {{post.comments.count}}</a>
+    {% else %}
+    <p class="date">Created on: {{post.created_date}} by {{post.author|title}}</p>
+    <p class="maincontent">{{post.text|truncatewords:30}}
+    <a class="moreinfo" href="{% url 'post_detail' pk=post.pk %}">Read More &raquo;</a><br></p>
+    {% endif %}
+  {% endfor %}
+<br>
+{% include 'blog/pagination.html' with page=post_list %}
+{% endblock %}

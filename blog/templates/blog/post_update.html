@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% if user.id == post.author.id %}
+<h1>Edit Post</h1>
+<form method="POST" autocomplete="off">
+  {% csrf_token %}
+  {{form.as_p}}
+  <button type="submit" class="btn btn-primary">update</button>
+  {% else %}
+  <h3>Only Post Creator can Edit.</h3>
+  {% endif %}
+</form>
+{% endblock %}

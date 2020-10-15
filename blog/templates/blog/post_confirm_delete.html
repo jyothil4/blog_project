@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+<form method="post">
+  {% csrf_token %}
+  {% if user.id == post.author.id %}
+  <h3>Are you sure you want to delete "{{ object }}"?</h3>
+
+  <input type="submit" class="btn btn-danger" value="Confirm">
+  {% else %}
+  <h3>Only Post Creator can Delete.</h3>
+  {% endif %}
+</form>
+{% endblock %}

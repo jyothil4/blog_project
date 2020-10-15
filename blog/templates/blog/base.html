@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Blog</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <!--Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Sansita+Swashed:wght@600&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static "css/blog.css" %}">
+  </head>
+  <body>
+    <!-- navbar -->
+      <nav class="navbar techfont navbar-inverse">
+      <div class="container">
+        <ul class="nav navbar-nav ">
+          <li><a  class="navbar-brand bigbrand"  href="{% url 'post_list' %}">My Blog</a> </li>
+          <li><a href="{% url 'about'%}">About</a> </li>
+          <li><a href="https://www.github.com">GitHub</a> </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'post_create' %}">New Post</a></li>
+          <li><a href="{% url 'post_draft' %}">Drafts</a></li>
+          <li><a href="{% url 'logout' %}">Log Out</a></li>
+          <li><a>Welcome:{{user.username}}</a></li>
+          {% else %}
+          <li><a class="nav navbar-right" href="{% url 'signup' %}">Sign Up </a> </li>
+          <li><a class="nav navbar-right" href="{% url 'login' %}"><span class="glyphicon glyphicon-user"></span></a> </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+    <!-- content block -->
+    <div class="content container">
+      <div class="row">
+          <div class="blog_post">
+            {% block content %}
+            {% endblock %}
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
